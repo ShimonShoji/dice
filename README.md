@@ -1,2 +1,2 @@
-# mypkg
-my package
+# dice
+roll dices and check the dice-poker
