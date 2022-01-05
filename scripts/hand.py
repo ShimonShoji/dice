@@ -3,20 +3,52 @@ import rospy
 from std_msgs.msg import Int32
 
 n = 0
-dice = [0,0,0,0,0,0,100]
+dice = [0,0,0,0,0,0,100,200,300,400,500]
 
 def cb(message):
     global n
     n = message.data
+
     if dice[4] != 0:
         dice[5] = n
         rospy.loginfo(dice[5]*100000)
 
-        hand = sorted(dice)
-        rospy.loginfo("hand: %d, %d, %d, %d, %d", hand[1], hand[2], hand[3], hand[4], hand[5])
-
         #ソート
-        #判定
+        hand = sorted(dice)
+        dice[1] = 0
+        dice[2] = 0
+        dice[3] = 0
+        dice[4] = 0
+        dice[5] = 0
+        rospy.loginfo("hand: %d, %d, %d, %d, %d", hand[1], hand[2], hand[3], hand[4], hand[5])
+        
+        #five-card
+        if hand[1] == hand[2] == hand[3] == hand[4] == hand[5]:
+            rospy.loginfo("FIVE OF A KIND :%d", hand[5])
+        
+        #straight
+        elif hand[1]+1 == hand[2] and hand[2]+1 == hand[3] and hand[3]+1 == hand[4]+1 and hand[5]:
+            rospy.loginfo("STRAIGHT :%d", hand[5])
+        
+        #full-house
+        elif hand[1] == hand[2] != hand[3] == hand[4] == hand[5] or hand[1] == hand[2] == hand[3] != hand[4] == hand[5]:
+            rospy.loginfo("FULL HOUSE :%d", hand[5])
+        
+        #pairs or else
+        else:
+        for i in range(1,6):
+            #one-pair
+            if hand[i-1] != hand[i] == hand[i+1] != hand[i+2]:
+                rospy.loginfo("ONE PAIR :%d", hand[i])
+                break
+            #three-card
+            if hand[i-1] != hand[i] == hand[i+1] == hand[i+2] != hand[i+3]:
+                rospy.loginfo("THREE OF A KIND :%d", hand[i])
+                break
+            #four-card
+            if hand[i-1] != hand[i] == hand[i+1] == hand[i+2] == hand[i+3] != hand[i+4]:
+                rospy.loginfo("FOUR OF A KIND :%d", hand[i])
+                break
 
     elif dice[3] != 0:
         dice[4] = n
@@ -37,33 +69,5 @@ def cb(message):
 rospy.init_node('hand')
 sub = rospy.Subscriber('roll', Int32, cb)
 
-"""
-if dice[4] != 0:
-    dice[5] = n
-    rospy.loginfo(dice[5]*100)
-
-elif dice[3] != 0:
-    dice[4] = n
-    rospy.loginfo(dice[4]*100)
-
-elif dice[2] != 0:
-    dice[3] = n
-    rospy.loginfo(dice[3]*100)
-
-elif dice[1] != 0:
-    dice[2] = n
-    rospy.loginfo(dice[2]*100)
-
-else:
-    dice[1] = n
-
-    rospy.loginfo(dice[0]*100)
-    rospy.loginfo(dice[1]*100)
-    rospy.loginfo(dice[2]*100)
-    rospy.loginfo(dice[3]*100)
-    rospy.loginfo(dice[4]*100)
-    rospy.loginfo(dice[5]*100)
-    rospy.loginfo(dice[6]*100)
-"""
 rospy.spin()
 
