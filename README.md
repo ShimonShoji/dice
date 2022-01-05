@@ -1,12 +1,12 @@
 # ハンドチェッカーforサイコロポーカー
-roll dices and check the hand of dice-poker
 
-６面のサイコロを振って、サイコロポーカーの役をチェックします。
+サイコロを5回振って、サイコロポーカーの役をチェックします。
 
 # 環境
 
 * Raspberry Pi 3B+
 * Ubuntu 20.04 LTS
+* ROS1
 
 
 # コードの使用方法
@@ -32,7 +32,7 @@ $ rosrun dice hand.py
 
 # roll.pyとhand.pyの見かた、使い方
 
-* roll.pyについて
+### roll.pyについて
 roll.pyを実行すると
 ```
 press "e" to exit
@@ -47,12 +47,14 @@ press "r" to roll a dice:
 
 "r"を入力すると6面のサイコロを振って、出た値がhand.pyに送られる。
 
-* hand.pyについて
+### hand.pyについて
 hand.pyを実行したウィンドウにはrollから受け取った値（サイコロの出た目）が１つずつ表示されていく。
 
 5個の値を受け取った時点でその手札を昇順にソートした数字列が表示され、
 
 また、手札の役と最も影響力のあるカードの値が一緒に表示される。
+
+#### 例.
 ```
 [INFO] [1641358804.182578]: 1st: 4
 [INFO] [1641358804.544479]: 2nd: 2
@@ -64,7 +66,7 @@ hand.pyを実行したウィンドウにはrollから受け取った値（サイ
 ```
 
 
-# ムカデロボ本体とその動作
+# 実行した結果
 [動画](https://youtu.be/00aMZ1T5Yws)
 
 # Update
@@ -73,8 +75,6 @@ no update yet
 # 製作者
 * Shimon Shoji
 * Chiba Institute of Technology
-
-# 参考　
 
 # ライセンス
 " ムカデロボ用デバイスドライバー " is under [GNU General Public License v3.0](https://github.com/ShimonShoji/device_driver/blob/main/COPYING)
