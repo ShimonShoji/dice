@@ -32,7 +32,7 @@ $ rosrun dice hand.py
 
 # roll.pyとhand.pyの見かた、使い方
 
-### roll.pyについて
+### * roll.pyについて
 roll.pyを実行すると
 ```
 press "e" to exit
@@ -47,7 +47,7 @@ press "r" to roll a dice:
 
 "r"を入力すると6面のサイコロを振って、出た値がhand.pyに送られる。
 
-### hand.pyについて
+### * hand.pyについて
 hand.pyを実行したウィンドウにはrollから受け取った値（サイコロの出た目）が１つずつ表示されていく。
 
 5個の値を受け取った時点でその手札を昇順にソートした数字列が表示され、
