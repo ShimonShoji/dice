@@ -20,6 +20,11 @@ $ chmod +x roll.py
 $ chmod +x hand.py
 ```
 
+* roscoreの起動
+```
+$ roscore
+```
+
 * roll.pyの実行
 ```
 $ rosrun dice roll.py
