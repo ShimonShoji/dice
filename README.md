@@ -32,22 +32,22 @@ $ rosrun dice hand.py
 
 # roll.pyとhand.pyの見かた、使い方
 
-### * roll.pyについて
+* ### roll.pyについて
 roll.pyを実行すると
 ```
 press "e" to exit
 press number-key(1~6) to send the number
 press "r" to roll a dice:
 ```
-と出てくるので指示に沿って、
+と表示されるので指示に沿って、
 
 "e"を入力すると通常のubuntuのコマンドプロンプトに戻り、
 
 1から6の数字を入力するとその値がhand.pyに送られ、
 
-"r"を入力すると6面のサイコロを振って、出た値がhand.pyに送られる。
+"r"を入力すると6面のサイコロを振って、出た目の値がhand.pyに送られる。
 
-### * hand.pyについて
+* ### hand.pyについて
 hand.pyを実行したウィンドウにはrollから受け取った値（サイコロの出た目）が１つずつ表示されていく。
 
 5個の値を受け取った時点でその手札を昇順にソートした数字列が表示され、
@@ -77,4 +77,4 @@ no update yet
 * Chiba Institute of Technology
 
 # ライセンス
-" ムカデロボ用デバイスドライバー " is under [GNU General Public License v3.0](https://github.com/ShimonShoji/device_driver/blob/main/COPYING)
+" ハンドチェッカーforサイコロポーカー " is under [GNU General Public License v3.0](https://github.com/ShimonShoji/device_driver/blob/main/COPYING)
