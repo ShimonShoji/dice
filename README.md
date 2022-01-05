@@ -77,4 +77,4 @@ no update yet
 * Chiba Institute of Technology
 
 # ライセンス
-" ハンドチェッカーforサイコロポーカー " is under [GNU General Public License v3.0](https://github.com/ShimonShoji/device_driver/blob/main/COPYING)
+" ハンドチェッカーforサイコロポーカー " is under [BSD 2-Clause "Simplified" License](https://github.com/ShimonShoji/dice/COPYING)
