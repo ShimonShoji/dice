@@ -72,7 +72,7 @@ hand.pyを実行したウィンドウにはrollから受け取った値（サイ
 
 
 # 実行した結果
-[動画](https://youtu.be/00aMZ1T5Yws)
+[動画](https://youtu.be/TXDsuoXef2Q)
 
 # Update
 no update yet
