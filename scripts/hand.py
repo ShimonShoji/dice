@@ -12,6 +12,9 @@ def cb(message):
         dice[5] = n
         rospy.loginfo(dice[5]*100000)
 
+        hand = sorted(dice)
+        rospy.loginfo("hand: %d, %d, %d, %d, %d", hand[1], hand[2], hand[3], hand[4], hand[5])
+
         #ソート
         #判定
 
