@@ -13,7 +13,7 @@ def cb(message):
         dice[5] = n
         rospy.loginfo(dice[5]*100000)
 
-        #ソート
+        #hand
         hand = sorted(dice)
         dice[1] = 0
         dice[2] = 0
@@ -24,34 +24,38 @@ def cb(message):
         
         #five-card
         if hand[1] == hand[2] == hand[3] == hand[4] == hand[5]:
-            rospy.loginfo("FIVE OF A KIND :%d", hand[5])
-        
-        #straight
-        elif hand[1]+1 == hand[2] and hand[2]+1 == hand[3] and hand[3]+1 == hand[4]+1 and hand[5]:
-            rospy.loginfo("STRAIGHT :%d", hand[5])
+            rospy.loginfo("FIVE OF A KIND, %d", hand[5])
         
         #full-house
         elif hand[1] == hand[2] != hand[3] == hand[4] == hand[5] or hand[1] == hand[2] == hand[3] != hand[4] == hand[5]:
-            rospy.loginfo("FULL HOUSE :%d", hand[5])
+            rospy.loginfo("FULL HOUSE, %d", hand[5])
         
+        #straight
+        elif hand[1]+1 == hand[2] and hand[2]+1 == hand[3] and hand[3]+1 == hand[4] and hand[4]+1 == hand[5]:
+            rospy.loginfo("%d high STRAIGHT", hand[5])
+
+        #BUST
+        elif hand[1] != hand[2] != hand[3] != hand[4] != hand[5]:
+            rospy.loginfo("%d high", hand[5])
+
         #pairs or else
         else:
-            for i in range(2,6):
-                #one-pair
-                if hand[i-1] != hand[i] == hand[i+1] != hand[i+2]:
-                    #two-pair
-                    if hand[i+2] == hand[i+3] != hand[i+4] or hand[i+2] != hand[i+3] == hand[i+4]:
-                        rospy.loginfo("TWO-PAIR :%d", hand[i+3])
-                    else:
-                        rospy.loginfo("ONE-PAIR :%d", hand[i])
+            for i in range(1,5):
+                #four-card
+                if hand[i-1] != hand[i] == hand[i+1] == hand[i+2] == hand[i+3] != hand[i+4]:
+                    rospy.loginfo("FOUR OF A KIND, %d", hand[i])
                     break
                 #three-card
                 elif hand[i-1] != hand[i] == hand[i+1] == hand[i+2] != hand[i+3]:
-                    rospy.loginfo("THREE OF A KIND :%d", hand[i])
+                    rospy.loginfo("THREE OF A KIND, %d", hand[i])
                     break
-                #four-card
-                elif hand[i-1] != hand[i] == hand[i+1] == hand[i+2] == hand[i+3] != hand[i+4]:
-                    rospy.loginfo("FOUR OF A KIND :%d", hand[i])
+                #one-pair
+                elif hand[i-1] != hand[i] == hand[i+1] != hand[i+2]:
+                    #two-pair
+                    if hand[i+2] == hand[i+3] != hand[i+4] or hand[i+2] != hand[i+3] == hand[i+4]:
+                        rospy.loginfo("TWO-PAIR, %d", hand[i+3])
+                    else:
+                        rospy.loginfo("ONE-PAIR, %d", hand[i])
                     break
 
     elif dice[3] != 0:
