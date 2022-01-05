@@ -11,7 +11,7 @@ def cb(message):
 
     if dice[4] != 0:
         dice[5] = n
-        rospy.loginfo(dice[5]*100000)
+        rospy.loginfo("5th: %d", dice[5])
 
         #hand
         hand = sorted(dice)
@@ -57,22 +57,23 @@ def cb(message):
                     else:
                         rospy.loginfo("ONE-PAIR, %d", hand[i])
                     break
+        rospy.loginfo(" ")
 
     elif dice[3] != 0:
         dice[4] = n
-        rospy.loginfo(dice[4]*10000)
+        rospy.loginfo("4th: %d", dice[4])
 
     elif dice[2] != 0:
         dice[3] = n
-        rospy.loginfo(dice[3]*1000)
+        rospy.loginfo("3rd: %d", dice[3])
 
     elif dice[1] != 0:
         dice[2] = n
-        rospy.loginfo(dice[2]*100)
+        rospy.loginfo("2nd: %d", dice[2])
 
     else:
         dice[1] = n
-        rospy.loginfo(dice[1]*10)
+        rospy.loginfo("1st: %d", dice[1])
 
 rospy.init_node('hand')
 sub = rospy.Subscriber('roll', Int32, cb)
