@@ -36,19 +36,23 @@ def cb(message):
         
         #pairs or else
         else:
-        for i in range(1,6):
-            #one-pair
-            if hand[i-1] != hand[i] == hand[i+1] != hand[i+2]:
-                rospy.loginfo("ONE PAIR :%d", hand[i])
-                break
-            #three-card
-            if hand[i-1] != hand[i] == hand[i+1] == hand[i+2] != hand[i+3]:
-                rospy.loginfo("THREE OF A KIND :%d", hand[i])
-                break
-            #four-card
-            if hand[i-1] != hand[i] == hand[i+1] == hand[i+2] == hand[i+3] != hand[i+4]:
-                rospy.loginfo("FOUR OF A KIND :%d", hand[i])
-                break
+            for i in range(2,6):
+                #one-pair
+                if hand[i-1] != hand[i] == hand[i+1] != hand[i+2]:
+                    #two-pair
+                    if hand[i+2] == hand[i+3] != hand[i+4] or hand[i+2] != hand[i+3] == hand[i+4]:
+                        rospy.loginfo("TWO-PAIR :%d", hand[i+3])
+                    else:
+                        rospy.loginfo("ONE-PAIR :%d", hand[i])
+                    break
+                #three-card
+                elif hand[i-1] != hand[i] == hand[i+1] == hand[i+2] != hand[i+3]:
+                    rospy.loginfo("THREE OF A KIND :%d", hand[i])
+                    break
+                #four-card
+                elif hand[i-1] != hand[i] == hand[i+1] == hand[i+2] == hand[i+3] != hand[i+4]:
+                    rospy.loginfo("FOUR OF A KIND :%d", hand[i])
+                    break
 
     elif dice[3] != 0:
         dice[4] = n
