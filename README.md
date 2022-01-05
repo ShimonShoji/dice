@@ -77,4 +77,4 @@ no update yet
 * Chiba Institute of Technology
 
 # ライセンス
-" ハンドチェッカーforサイコロポーカー " is under [BSD 2-Clause "Simplified" License](https://github.com/ShimonShoji/dice/COPYING)
+" ハンドチェッカーforサイコロポーカー " is under [BSD 2-Clause "Simplified" License](https://github.com/ShimonShoji/dice/blob/main/COPYING)
