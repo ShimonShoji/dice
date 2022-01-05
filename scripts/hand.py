@@ -10,18 +10,18 @@ def cb(message):
     n = message.data
     if dice[4] != 0:
         dice[5] = n
-        rospy.loginfo(dice[5]*100)
+        rospy.loginfo(dice[5]*100000)
 
         #ソート
         #判定
 
     elif dice[3] != 0:
         dice[4] = n
-        rospy.loginfo(dice[4]*100)
+        rospy.loginfo(dice[4]*10000)
 
     elif dice[2] != 0:
         dice[3] = n
-        rospy.loginfo(dice[3]*100)
+        rospy.loginfo(dice[3]*1000)
 
     elif dice[1] != 0:
         dice[2] = n
@@ -29,7 +29,7 @@ def cb(message):
 
     else:
         dice[1] = n
-        rospy.loginfo(dice[1]*100)
+        rospy.loginfo(dice[1]*10)
 
 rospy.init_node('hand')
 sub = rospy.Subscriber('roll', Int32, cb)
