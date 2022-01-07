@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: BSD-2
 """
-* Copyright (C) 2022 Ryuichi Ueda.  All rights reserved.
+* Copyright (C) 2022 Shimon Shoji.  All rights reserved.
 """
 import rospy
 from std_msgs.msg import Int32
