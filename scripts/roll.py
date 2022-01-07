@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 
+# SPDX-License-Identifier: BSD-2.0
+"""
+* Copyright (C) 2022 Ueda Ryuichi.  All rights reserved.
+"""
 import rospy
 import random
 from std_msgs.msg import Int32
-from std_msgs.msg import String
 
 rospy.init_node('roll')
 pub = rospy.Publisher('roll', Int32, queue_size=1)
