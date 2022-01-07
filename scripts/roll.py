@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-# SPDX-License-Identifier: BSD-2.0
+# SPDX-License-Identifier: BSD-2
 """
-* Copyright (C) 2022 Ueda Ryuichi.  All rights reserved.
+* Copyright (C) 2022 Ryuichi Ueda.  All rights reserved.
 """
 import rospy
 import random
